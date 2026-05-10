@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot name="joint" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="joint" params="prefix">
+  <!-- 转台和world连接joint -->
+    <link name="world"/>
+        <joint name="world_fixed" type="fixed">
+            <parent link="world"/>
+            <child link="platform_base_link"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </joint>
+  <!-- RML63机械臂和转台platform_plate_Link连接joint -->
+  <joint name="${prefix}body_arm_joint" type="fixed">
+    <origin xyz="1.21704 0 0.095" rpy="0 0 3.1415" />
+    <parent link="platform_plate_Link" />
+    <child link="${prefix}base_link" />
+    <axis xyz="0 0 0" />
+  </joint>  
+</xacro:macro>
+</robot>  
+
+ 

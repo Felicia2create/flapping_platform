@@ -1,0 +1,2 @@
+W: GPG error: https://mirrors.tuna.tsinghua.edu.cn/ros2/ubuntu jammy InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY F42ED6FBAB17C654
+E: The repository 'https://mirrors.tuna.tsinghua.edu.cn/ros2/ubuntu jammy InRelease' is not signed.

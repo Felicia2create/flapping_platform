@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="platform" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="platform_base_link">
+    <inertial>
+      <origin xyz="0 0 0.37288" rpy="0 0 0" />
+      <mass value="800.000" />
+      <inertia 
+        ixx="165.461018" 
+        ixy="0.657490" 
+        ixz="0.288120" 
+        iyy="166.219920" 
+        iyz="-0.498917" 
+        izz="125.016291" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find flapping_platform_description)/meshes/platform/base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="plate_joint" type="continuous">
+    <origin xyz="0 0 1.15368" rpy="0 0 0" />
+    <parent link="platform_base_link" />
+    <child link="platform_plate_Link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <link name="platform_plate_Link">
+    <inertial>
+      <origin xyz="0 0 0.04815" rpy="0 0 0" />
+      <mass value="200.000" />
+      <inertia 
+        ixx="33.295085"
+        ixy="0.000027"
+        ixz="0.000005"
+        iyy="33.295162"
+        iyz="-0.000015"
+        izz="66.259721" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find flapping_platform_description)/meshes/platform/plate.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <geometry>
+      <mesh filename="file://$(find flapping_platform_description)/meshes/platform/plate.STL" />
+    </geometry>
+    </collision>
+  </link>
+</robot>

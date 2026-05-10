@@ -1,0 +1,10 @@
+# Default initial positions for rml_63_description's ros2_control fake system
+
+initial_positions:
+  arm1_joint1: 0
+  arm1_joint2: 0
+  arm1_joint3: 0
+  arm1_joint4: 0
+  arm1_joint5: 0
+  arm1_joint6: 0
+  plate_joint: 0
