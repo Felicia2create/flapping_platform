@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot name="flapping_platform" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:arg name="add_world" default="true"/>
-  <xacro:arg name="initial_positions_file" default="$(find rm_63_config)/config/initial_positions.yaml" />
+  <xacro:arg name="initial_positions_file" default="$(find flapping_platform_moveit_config)/config/flapping_platform_real/initial_positions.yaml" />
   <xacro:property name="prefix" value=""/>
   <xacro:property name="link6_type" value="Link6_6fb"/>
   <xacro:property name="base_type" value="base_link_III"/>
@@ -15,9 +14,8 @@
   <!-- 各部件连接关系 -->
   <xacro:include filename="$(find flapping_platform_description)/urdf/mech/joint.urdf.xacro"/>
   <xacro:joint
-    add_world="$(arg add_world)"
     prefix="${prefix}"/>
   <!-- ros2_control配置 -->
-  <xacro:include filename="$(find rm_63_config)/config/rml_63_description.ros2_control.xacro" />
-  <xacro:rml_63_description_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+  <xacro:include filename="$(find flapping_platform_description)/urdf/control/flapping_platform_real.ros2_control.xacro" />
+  <xacro:flapping_platform_real_ros2_control initial_positions_file="$(arg initial_positions_file)"/>
 </robot>
