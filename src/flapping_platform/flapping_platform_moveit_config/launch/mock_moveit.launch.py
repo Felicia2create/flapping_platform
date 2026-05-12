@@ -33,7 +33,7 @@ def generate_launch_description():
         pkg_share_description, "urdf", "robots", "flapping_platform_real.urdf.xacro"
     )
     initial_positions_file = os.path.join(
-        pkg_share_moveit_config, "config", "flapping_platform_real", "initial_positions.yaml"
+        pkg_share_moveit_config, "config", "real", "initial_positions.yaml"
     )
 
     # MoveIt configuration — loads real URDF (unprefixed joints) via xacro
@@ -46,15 +46,15 @@ def generate_launch_description():
             },
         )
         .robot_description_semantic(
-            file_path="config/flapping_platform_real/flapping_platform_real.srdf"
+            file_path="config/real/flapping_platform_real.srdf"
         )
         .trajectory_execution(
-            file_path="config/flapping_platform_real/moveit_controllers_real.yaml"
+            file_path="config/real/moveit_controllers_real.yaml"
         )
         .robot_description_kinematics(
-            file_path="config/flapping_platform_real/kinematics.yaml"
+            file_path="config/real/kinematics.yaml"
         )
-        .joint_limits(file_path="config/flapping_platform_real/joint_limits.yaml")
+        .joint_limits(file_path="config/real/joint_limits.yaml")
         .planning_pipelines(pipelines=["ompl"])
         .to_moveit_configs()
     )
@@ -95,7 +95,7 @@ def generate_launch_description():
 
     # ros2_control_node with mock_components
     ros2_controllers_path = os.path.join(
-        pkg_share_moveit_config, "config", "flapping_platform_real", "ros2_controllers.yaml"
+        pkg_share_moveit_config, "config", "real", "ros2_controllers.yaml"
     )
     ld.add_action(
         Node(
@@ -196,7 +196,7 @@ def generate_moveit_rviz_launch(ld, moveit_config):
     ld.add_action(
         DeclareLaunchArgument(
             "rviz_config",
-            default_value=str(moveit_config.package_path / "config/flapping_platform/moveit.rviz"),
+            default_value=str(moveit_config.package_path / "config/gazebo/moveit.rviz"),
         )
     )
 

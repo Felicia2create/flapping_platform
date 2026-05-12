@@ -46,7 +46,7 @@ def generate_launch_description():
     """
     # Define filenames
     urdf_package = 'flapping_platform_description'
-    urdf_filename = 'flapping_platform.urdf.xacro'
+    urdf_filename = 'flapping_platform_gazebo.urdf.xacro'
     rviz_config_filename = 'flapping_platform_description.rviz'
  
     # Set paths to important files

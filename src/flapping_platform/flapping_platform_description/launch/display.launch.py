@@ -14,7 +14,7 @@ def generate_launch_description():
         get_package_share_directory(package_name),
         'urdf',
         'robots',
-        'flapping_platform.urdf.xacro'
+        'flapping_platform_gazebo.urdf.xacro'
     )
 
     # 声明参数

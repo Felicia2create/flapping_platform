@@ -3,7 +3,7 @@
   <!-- 参数配置 robot_name指向flapping_platform_moveit_config下的config下的rml_63 -->
   <xacro:arg name="robot_name" default="flapping_platform"/>
   <xacro:arg name="use_gazebo" default="false"/>
-  <xacro:arg name="initial_positions_file" default="$(find flapping_platform_moveit_config)/config/flapping_platform/initial_positions.yaml" />
+  <xacro:arg name="initial_positions_file" default="$(find flapping_platform_moveit_config)/config/gazebo/initial_positions.yaml" />
   <xacro:property name="prefix" value="arm1_"/>
   <xacro:property name="link6_type" value="Link6_6fb"/>
   <xacro:property name="base_type" value="base_link_III"/>
@@ -25,7 +25,7 @@
     robot_name="$(arg robot_name)"
     use_gazebo="$(arg use_gazebo)"/>
   <!-- Import control_xacro -->
-  <xacro:include filename="$(find flapping_platform_description)/urdf/control/flapping_platform.ros2_control.xacro" />
+  <xacro:include filename="$(find flapping_platform_description)/urdf/control/flapping_platform_gazebo.ros2_control.xacro" />
   <xacro:flapping_platform_ros2_control 
     use_gazebo="$(arg use_gazebo)"
     initial_positions_file="$(arg initial_positions_file)"/>

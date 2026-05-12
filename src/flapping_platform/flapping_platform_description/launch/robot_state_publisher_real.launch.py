@@ -15,7 +15,7 @@ def generate_launch_description():
         pkg_share_description, "urdf", "robots", "flapping_platform_real.urdf.xacro"
     )
     default_initial_positions = os.path.join(
-        pkg_share_moveit_config, "config", "flapping_platform_real", "initial_positions.yaml"
+        pkg_share_moveit_config, "config", "real", "initial_positions.yaml"
     )
 
     declare_urdf_path = DeclareLaunchArgument(

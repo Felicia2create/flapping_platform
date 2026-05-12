@@ -165,7 +165,7 @@ def generate_launch_description():
     # Include Robot State Publisher launch file if enabled
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            os.path.join(pkg_share_description, 'launch', 'robot_state_publisher.launch.py')
+            os.path.join(pkg_share_description, 'launch', 'robot_state_publisher_gazebo.launch.py')
         ]),
         launch_arguments={
             'jsp': jsp,
@@ -177,15 +177,27 @@ def generate_launch_description():
         condition=IfCondition(use_robot_state_pub)
     )
 
-    # Include ROS 2 Controllers launch file if enabled
-    load_controllers_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(pkg_share_moveit, 'launch', 'load_ros2_controllers.launch.py')
-        ]),
-        launch_arguments={
-            'use_sim_time': use_sim_time
-        }.items(),
-        condition=IfCondition(load_controllers)
+    # Spawn controllers using modern spawner nodes
+    arm_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["arm1_controller"],
+        output="screen",
+        condition=IfCondition(load_controllers),
+    )
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"],
+        output="screen",
+        condition=IfCondition(load_controllers),
+    )
+    turntable_velocity_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["turntable_velocity_controller"],
+        output="screen",
+        condition=IfCondition(load_controllers),
     )
 
     # Set Gazebo model path
@@ -251,7 +263,9 @@ def generate_launch_description():
     # Add the actions to the launch description
     ld.add_action(set_env_vars_resources)
     ld.add_action(robot_state_publisher_cmd)
-    ld.add_action(load_controllers_cmd)
+    ld.add_action(joint_state_broadcaster_spawner)
+    ld.add_action(arm_controller_spawner)
+    ld.add_action(turntable_velocity_controller_spawner)
     ld.add_action(start_gazebo_cmd)
     ld.add_action(start_gazebo_ros_bridge_cmd)
     ld.add_action(start_gazebo_ros_spawner_cmd)

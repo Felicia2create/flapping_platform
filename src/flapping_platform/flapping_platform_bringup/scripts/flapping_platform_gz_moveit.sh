@@ -25,7 +25,7 @@ ros2 launch flapping_platform_gazebo flapping_platform.gazebo.launch.py \
     yaw:=0.0 &
 
 sleep 15
-ros2 launch flapping_platform_moveit_config move_group.launch.py &
+ros2 launch flapping_platform_moveit_config gazebo_moveit.launch.py &
 
 # Keep the script running until Ctrl+C
 wait
