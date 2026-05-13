@@ -3,10 +3,9 @@
 <package format="3">
   <name>flapping_platform_gazebo</name>
   <version>0.0.0</version>
-  <description>gazebo simulation</description>
+  <description>Gazebo Ignition simulation environment</description>
   <maintainer email="dzy@dzy.com">ubuntu</maintainer>
-  <license>BSD-3-Clause</license>
-
+  <license>TODO</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>controller_manager</depend>

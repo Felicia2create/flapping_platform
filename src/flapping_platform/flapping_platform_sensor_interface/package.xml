@@ -3,10 +3,9 @@
 <package format="3">
   <name>flapping_platform_sensor_interface</name>
   <version>0.0.0</version>
-  <description>传感器数据接口：接收/模拟转台角度，合并关节状态发布到 /joint_states</description>
+  <description>Sensor interface: merges arm joint states and turntable angle into /joint_states</description>
   <maintainer email="dzy@dzy.com">ubuntu</maintainer>
-  <license>BSD-3-Clause</license>
-
+  <license>TODO</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <exec_depend>rclpy</exec_depend>

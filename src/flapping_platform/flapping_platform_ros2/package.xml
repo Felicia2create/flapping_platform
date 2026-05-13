@@ -3,10 +3,9 @@
 <package format="3">
   <name>flapping_platform_ros2</name>
   <version>0.0.0</version>
-  <description>flapping_platform_metapackage</description>
+  <description>Flapping platform metapackage aggregating all sub-packages</description>
   <maintainer email="dzy@dzy.com">ubuntu</maintainer>
-  <license>BSD-3-Clause</license>
-
+  <license>TODO</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <exec_depend>flapping_platform_bringup</exec_depend>

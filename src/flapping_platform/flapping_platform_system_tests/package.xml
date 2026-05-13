@@ -3,10 +3,9 @@
 <package format="3">
   <name>flapping_platform_system_tests</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>System integration tests for flapping platform</description>
   <maintainer email="dzy@dzy.com">ubuntu</maintainer>
-  <license>BSD-3-Clause</license>
-
+  <license>TODO</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
