@@ -2,7 +2,7 @@
 
 基于 ROS2 Humble 的扑翼机自动化实验平台。通过 RM63 机械臂搭载扑翼机模型在转台上进行扑翼飞行数据采集与运动控制实验。
 
-<img src="docs/images/platform.png" alt="平台模型" width="300">
+<img src="docs/images/platform1.png" alt="平台模型" width="500">
 
 ## 系统架构
 
